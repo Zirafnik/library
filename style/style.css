@@ -1,0 +1,13 @@
+#form-container {
+    display: none;
+}
+
+.books {
+    margin: 10px;
+    background-color: lightblue;
+}
+
+.deleteBtn {
+    height: 24px;
+    width: 60px;
+}

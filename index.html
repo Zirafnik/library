@@ -6,6 +6,28 @@
         <link href="style/style.css" rel="stylesheet">
     </head>
     <body>
+        <div id="container"></div>
+
+        <button id="newBtn">new</button>
+
+        <form id="form-container">
+            <h2>Add a book</h2>
+
+            <label for="author">Author:</label>
+            <input id="author" type="text" name="author" required>
+
+            <label for="title">Title:</label>
+            <input id="title" type="text" name="title" required>
+
+            <label for="pages">Pages:</label>
+            <input id="pages" type="number" name="pages" required>
+
+            <label for="read">Read it:</label>
+            <input id="read" type="checkbox" name="read" value="yes">
+
+            <button type="button" onclick="createBook()">Add</button>
+            <button type="button" onclick="closeBtn()">Close</button>
+        </form>
 
         <script src="scripts/main.js"></script>
     </body>
