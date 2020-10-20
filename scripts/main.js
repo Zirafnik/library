@@ -28,16 +28,6 @@ function displayBooks() {
             addedBook.appendChild(lineInfo);
         }
         
-        //add delete button to div
-        let deleteBtn= document.createElement('button');
-        deleteBtn.textContent= 'Delete';
-        deleteBtn.classList.add('deleteBtn');
-        deleteBtn.addEventListener('click', function(e) {
-            container.removeChild(e.target.parentNode);
-            myLibrary.splice(e.target.parentNode.getAttribute('data-place'), 1);
-            displayBooks();
-        })
-        addedBook.appendChild(deleteBtn);
 
         //add read button to div
         let readBtn= document.createElement('input');
@@ -50,6 +40,8 @@ function displayBooks() {
         }
         readBtn.addEventListener('click', function(e) {
             if(e.target.checked) {
+                //replace with myLibrary.method() which will toggle and is located in prototype
+                //does it matter? i would only be replacing .read='';
                 myLibrary[e.target.parentNode.getAttribute('data-place')].read= 'yes';
                 console.log('now its checked');
             } else {
@@ -58,6 +50,17 @@ function displayBooks() {
             }
         })
         addedBook.appendChild(readBtn);
+
+        //add delete button to div
+        let deleteBtn= document.createElement('button');
+        deleteBtn.textContent= 'Delete';
+        deleteBtn.classList.add('deleteBtn');
+        deleteBtn.addEventListener('click', function(e) {
+            container.removeChild(e.target.parentNode);
+            myLibrary.splice(e.target.parentNode.getAttribute('data-place'), 1);
+            displayBooks();
+        })
+        addedBook.appendChild(deleteBtn);
         
         //added books propreties
         addedBook.setAttribute('data-place', myLibrary.indexOf(book));
