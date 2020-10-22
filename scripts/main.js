@@ -1,4 +1,42 @@
-let myLibrary = [{author: 'Cankar', pages: 300}, {author: 'Preseren', pages: 20}];
+let myLibrary = [
+    {
+    title: 'Robinson Crusoe',
+    author: 'Daniel Dafoe',
+    pages: 198,
+    read: 'yes'
+    },
+
+    {
+    title: 'The Art of War',    
+    author: 'Sun Tzu',
+    pages: 260,
+    read: 'yes'
+    },
+
+    {
+    title: 'War and Peace',
+    author: 'Leo Tolstoy',
+    pages: 1225,
+    read: 'no'
+    }];
+
+//LOCAL STORAGE
+//check if exists
+function getLocalStorage() {
+    if (typeof(Storage) !== "undefined") {
+        myLibrary= JSON.parse(window.localStorage.getItem('dataBooks'));
+        } else {
+        console.log('no storage support');
+    }
+}
+getLocalStorage();
+
+function updateLocalStorage() {
+    window.localStorage.clear();
+    window.localStorage.setItem('dataBooks', JSON.stringify(myLibrary));
+}
+
+
 
 function Book(author, title, pages, read) {
     this.title = title;
@@ -9,6 +47,7 @@ function Book(author, title, pages, read) {
 
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
+    updateLocalStorage();
 }
 
 //displaying
@@ -48,6 +87,7 @@ function displayBooks() {
                 myLibrary[e.target.parentNode.getAttribute('data-place')].read= 'no';
                 console.log('now its unchecked');
             }
+            updateLocalStorage();
         })
         addedBook.appendChild(readBtn);
 
@@ -59,6 +99,7 @@ function displayBooks() {
             container.removeChild(e.target.parentNode);
             myLibrary.splice(e.target.parentNode.getAttribute('data-place'), 1);
             displayBooks();
+            updateLocalStorage();
         })
         addedBook.appendChild(deleteBtn);
         
