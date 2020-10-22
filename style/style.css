@@ -1,6 +1,12 @@
 html, body {
     height: 100%;
     width: 100%;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-weight: 500;
 }
 
 footer {
@@ -8,13 +14,23 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
+    background-color: beige;
+    height: 30%;
 }
 
 #form-container {
-    height: 23%;
+    height: 90%;
     width: 400px;
 
+    border-radius: 12px;
     border: solid 2px black;
+    font-size: 18px;
+    font-weight: 500;
+
+    padding-bottom: 0px;
+
+    background-color: rgb(255, 232, 169);
 }
 
 label { 
@@ -23,10 +39,22 @@ label {
 
 h2 {
     text-align: center;
+    font-size: 32px;
+    margin: 0px;
+    padding-top: 5px;
 }
 
 .formBtn {
     text-align: center;
+}
+
+.formBtns {
+    height: 30px;
+    width: 60px;
+    margin: 5px;
+    padding: 0px;
+
+    font-size: 16px;
 }
 
 .books {
@@ -34,15 +62,20 @@ h2 {
     width: 170px;
 
     margin: 10px;
-    background-color: rgba(173, 216, 230, 0.671);
+    background-color: rgba(173, 216, 230, 0.671);  
 
-    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgb(143, 143, 143);
+    
+    border-radius: 20px;
     border: solid 2px black;
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .deleteBtn {
@@ -53,7 +86,7 @@ h2 {
 
 #header {
     width: 100%;
-    height: 15%;
+    height: 14%;
     background-color: beige;
 
     display: grid;
@@ -74,20 +107,44 @@ h1 {
 
 #container {
     width: 100%;
-    height: 62%;
+    height: 56%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
      
     overflow-y: auto; 
+
+    padding: 0px;
 }
 
 #newBtn {
     grid-area: new;
 
-    height: 40px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
 
     align-self: center;
     justify-self: center;
+
+    background-image: url('../images/add.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40%;
+
+    border-radius: 50%;
+    border: solid 1px black;
+
+    box-shadow: 3px 3px 5px rgb(146, 146, 146);
+
+    cursor: pointer;
+}
+
+#readLine {
+    text-align: center;
+    margin-right: 30px;
+    margin-top: 5px;
+}
+
+.readSth {
+    vertical-align: middle;
 }
