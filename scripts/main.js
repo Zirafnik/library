@@ -33,8 +33,16 @@ getLocalStorage();
 
 function updateLocalStorage() {
     window.localStorage.clear();
-    window.localStorage.setItem('dataBooks', JSON.stringify(myLibrary));
+    window.localStorage.setItem('dataBooks', JSON.stringify(myLibrary));  //JSON.stringify enumerates propreties, so it will not include non-enumerable
 }
+
+
+//random background colors
+function getColor(){ 
+    return "hsl(" + 360 * Math.random() + ',' +
+               (25 + 70 * Math.random()) + '%,' + 
+               (85 + 10 * Math.random()) + '%)'
+  }
 
 
 
@@ -62,9 +70,11 @@ function displayBooks() {
     myLibrary.forEach(book => {
         let addedBook= document.createElement('div');
         for(const[key, value] of Object.entries(book)) {
-            let lineInfo= document.createElement('div');
-            lineInfo.textContent= key + ': ' + value;
-            addedBook.appendChild(lineInfo);
+            if (key !== 'background') {
+                let lineInfo= document.createElement('div');
+                lineInfo.textContent= key + ': ' + value;
+                addedBook.appendChild(lineInfo);
+            }
         }
         
 
@@ -106,6 +116,10 @@ function displayBooks() {
         //added books propreties
         addedBook.setAttribute('data-place', myLibrary.indexOf(book));
         addedBook.classList.add('books');
+        console.log(Object.entries(book));
+        console.log(book.background);
+        console.log(myLibrary);
+        addedBook.style.background= book.background;
         container.appendChild(addedBook);
     });
 }
@@ -148,12 +162,15 @@ function createBook() {
         document.getElementById('title').value,
         document.getElementById('pages').value,
         getReadValue() );
-    
+
+        newInstance.background= `${getColor()}`;
+
     addBookToLibrary(newInstance);
     displayBooks();
     form.reset();
     formToggle.closeForm();
 }
+
 //in html onclick
 function closeBtn() {
     formToggle.closeForm();
