@@ -116,9 +116,6 @@ function displayBooks() {
         //added books propreties
         addedBook.setAttribute('data-place', myLibrary.indexOf(book));
         addedBook.classList.add('books');
-        console.log(Object.entries(book));
-        console.log(book.background);
-        console.log(myLibrary);
         addedBook.style.background= book.background;
         container.appendChild(addedBook);
     });
@@ -141,7 +138,9 @@ const newBtn= document.querySelector('#newBtn');
 newBtn.addEventListener('click', function() {   
     if(form.style.display == 'block') {
         formToggle.closeForm();
+        container.style.cssText= `height: 86%;`;
     } else if(form.style.display == 'none' || form.style.display == '') {
+        container.style.cssText= 'height: 56%;';
         formToggle.openForm();
     }
 });
