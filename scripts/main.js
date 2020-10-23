@@ -1,21 +1,21 @@
 let myLibrary = [
     {
-    title: 'Robinson Crusoe',
     author: 'Daniel Dafoe',
+    title: 'Robinson Crusoe',
     pages: 198,
     read: 'yes'
     },
 
     {
-    title: 'The Art of War',    
     author: 'Sun Tzu',
+    title: 'The Art of War',    
     pages: 260,
     read: 'yes'
     },
 
     {
-    title: 'War and Peace',
     author: 'Leo Tolstoy',
+    title: 'War and Peace',
     pages: 1225,
     read: 'no'
     }];
@@ -47,8 +47,8 @@ function getColor(){
 
 
 function Book(author, title, pages, read) {
-    this.title = title;
     this.author = author;
+    this.title = title;
     this.pages = pages;
     this.read = read;
 }
@@ -70,7 +70,7 @@ function displayBooks() {
     myLibrary.forEach(book => {
         let addedBook= document.createElement('div');
         for(const[key, value] of Object.entries(book)) {
-            if (key !== 'background') {
+            if (key !== 'background' && key!== 'read') {
                 let lineInfo= document.createElement('div');
                 lineInfo.textContent= key + ': ' + value;
                 addedBook.appendChild(lineInfo);
@@ -79,10 +79,12 @@ function displayBooks() {
         
 
         //add read button to div
+        let readCont= document.createElement('div');
         let readBtn= document.createElement('input');
+        readBtn.setAttribute('id', 'readBtn');
         let readText= document.createElement('span');
-        readText.textContent= 'Read';
-        addedBook.appendChild(readText);
+        readText.textContent= 'read:';
+        readCont.appendChild(readText);
         readBtn.setAttribute('type', 'checkbox');
         if(book.read== 'yes') {
             readBtn.setAttribute('checked', 'true');
@@ -91,15 +93,16 @@ function displayBooks() {
             if(e.target.checked) {
                 //replace with myLibrary.method() which will toggle and is located in prototype
                 //does it matter? i would only be replacing .read='';
-                myLibrary[e.target.parentNode.getAttribute('data-place')].read= 'yes';
+                myLibrary[e.target.parentNode.parentNode.getAttribute('data-place')].read= 'yes';
                 console.log('now its checked');
             } else {
-                myLibrary[e.target.parentNode.getAttribute('data-place')].read= 'no';
+                myLibrary[e.target.parentNode.parentNode.getAttribute('data-place')].read= 'no';
                 console.log('now its unchecked');
             }
             updateLocalStorage();
         })
-        addedBook.appendChild(readBtn);
+        readCont.appendChild(readBtn);
+        addedBook.appendChild(readCont);
 
         //add delete button to div
         let deleteBtn= document.createElement('button');
