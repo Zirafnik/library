@@ -178,3 +178,12 @@ function closeBtn() {
     formToggle.closeForm();
     form.reset();
 }
+
+//sorts display
+function sortByAuthor() {
+    myLibrary.sort((a, b) => (a.author > b.author) ? 1 : -1);
+    displayBooks();
+}
+
+const sortBtn= document.querySelector('#sortBtn');
+sortBtn.addEventListener('click', sortByAuthor);
