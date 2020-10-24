@@ -16,11 +16,10 @@ footer {
     justify-content: center;
 
     background-color: beige;
-   /* height: 30%; */
 }
 
 #form-container {
-    height: 30%;
+    height: 90%;
     width: 400px;
 
     border-radius: 12px;
@@ -34,7 +33,7 @@ footer {
 }
 
 label { 
-    display: inline-block; width: 28%; text-align: right;
+    display: inline-block; width: 31%; text-align: right;
 }
 
 h2 {
@@ -46,7 +45,7 @@ h2 {
 
 button {
     cursor: pointer;
-    outline: none;  
+    outline: none;
 }
 
 .formBtn {
@@ -64,6 +63,12 @@ button {
     color: black;
     border: solid 2px black;
     border-radius: 5px;
+
+    background-color: rgb(152, 252, 255);
+}
+
+.formBtns:hover {
+    background-color: rgb(154, 255, 159);
 }
 
 .books {
@@ -136,7 +141,7 @@ h1 {
 
     padding: 0px;
 
-    background-color: rgb(243, 252, 255);
+    background-color: rgb(234, 249, 255);
 }
 
 #newBtn {
@@ -152,6 +157,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 40%;
+    background-color: aquamarine;
 
     border-radius: 50%;
     border: solid 2px black;
@@ -159,6 +165,10 @@ h1 {
     box-shadow: 3px 3px 5px rgb(146, 146, 146);
 
     cursor: pointer;
+}
+
+#newBtn:hover {
+    background-color: rgb(255, 205, 149);
 }
 
 #readLine {
@@ -188,4 +198,10 @@ h1 {
     color: black;
     border: solid 2px black;
     border-radius: 5px;
+
+    background-color: aquamarine;
+}
+
+#sortBtn:hover {
+    background-color: rgb(255, 205, 149);
 }
