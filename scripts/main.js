@@ -139,16 +139,22 @@ let formToggle= {
     }
 }
 
+const footer= document.querySelector('#footer');
 const newBtn= document.querySelector('#newBtn');
-newBtn.addEventListener('click', function() {   
+newBtn.addEventListener('click', adjustFooterHeight);
+
+function adjustFooterHeight() {   
     if(form.style.display == 'block') {
         formToggle.closeForm();
         container.style.cssText= `height: 86%;`;
+        footer.style.cssText= 'height: 0%';
+
     } else if(form.style.display == 'none' || form.style.display == '') {
         container.style.cssText= 'height: 56%;';
+        footer.style.cssText= 'height: 30%';
         formToggle.openForm();
     }
-});
+}
 
 //creating new entry object to myLibrary- in html onlick
 function getReadValue() {
@@ -173,12 +179,16 @@ function createBook() {
     displayBooks(myLibrary);
     form.reset();
     formToggle.closeForm();
+    container.style.cssText= `height: 86%;`;
+    footer.style.cssText= 'height: 0%';
 }
 
 //in html onclick
 function closeBtn() {
     formToggle.closeForm();
     form.reset();
+    container.style.cssText= `height: 86%;`;
+    footer.style.cssText= 'height: 0%';
 }
 
 //sorts display
