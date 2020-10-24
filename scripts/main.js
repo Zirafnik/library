@@ -26,7 +26,7 @@ let myLibrary = [/*
 //LOCAL STORAGE
 //check if exists
 function getLocalStorage() {
-    if (typeof(Storage) !== "undefined") {
+    if (typeof(Storage) !== "undefined" && window.localStorage.length!=0) {
         myLibrary= JSON.parse(window.localStorage.getItem('dataBooks'));
         } else {
         console.log('no storage support');
