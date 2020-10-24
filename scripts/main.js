@@ -63,6 +63,10 @@ function addBookToLibrary(newBook) {
 //displaying
 const container= document.querySelector('#container');
 function displayBooks(chosenArray) {
+    if(chosenArray==null) {
+        console.log('null I guess');
+        return;
+    }
     //remove previous display, because it always prints full array
     while (container.lastElementChild) {
         container.removeChild(container.lastElementChild);
