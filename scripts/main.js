@@ -1,24 +1,27 @@
-let myLibrary = [
+let myLibrary = [/*
     {
     author: 'Daniel Dafoe',
     title: 'Robinson Crusoe',
     pages: 198,
-    read: 'yes'
+    read: 'yes',
+    background: 'hsl(147, 83%, 86%)'
     },
 
     {
     author: 'Sun Tzu',
     title: 'The Art of War',    
     pages: 260,
-    read: 'yes'
+    read: 'yes',
+    background: 'hsl(354, 87%, 86%)'
     },
 
     {
     author: 'Leo Tolstoy',
     title: 'War and Peace',
     pages: 1225,
-    read: 'no'
-    }];
+    read: 'no',
+    background: 'hsl(225, 83%, 86%)'
+    }*/];
 
 //LOCAL STORAGE
 //check if exists
@@ -35,7 +38,6 @@ function updateLocalStorage() {
     window.localStorage.clear();
     window.localStorage.setItem('dataBooks', JSON.stringify(myLibrary));  //JSON.stringify enumerates propreties, so it will not include non-enumerable
 }
-
 
 //random background colors
 function getColor(){ 
