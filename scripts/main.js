@@ -1,8 +1,8 @@
-let myLibrary = [/*
+let myLibrary = [
     {
     author: 'Daniel Dafoe',
     title: 'Robinson Crusoe',
-    pages: 198,
+    pages: '198',
     read: 'yes',
     background: 'hsl(147, 83%, 86%)'
     },
@@ -10,7 +10,7 @@ let myLibrary = [/*
     {
     author: 'Sun Tzu',
     title: 'The Art of War',    
-    pages: 260,
+    pages: '260',
     read: 'yes',
     background: 'hsl(354, 87%, 86%)'
     },
@@ -18,10 +18,10 @@ let myLibrary = [/*
     {
     author: 'Leo Tolstoy',
     title: 'War and Peace',
-    pages: 1225,
+    pages: '1225',
     read: 'no',
     background: 'hsl(225, 83%, 86%)'
-    }*/];
+    }];
 
 //LOCAL STORAGE
 //check if exists
@@ -63,10 +63,6 @@ function addBookToLibrary(newBook) {
 //displaying
 const container= document.querySelector('#container');
 function displayBooks(chosenArray) {
-    if(chosenArray==null) {
-        console.log('null I guess');
-        return;
-    }
     //remove previous display, because it always prints full array
     while (container.lastElementChild) {
         container.removeChild(container.lastElementChild);
