@@ -60,14 +60,14 @@ function addBookToLibrary(newBook) {
 
 //displaying
 const container= document.querySelector('#container');
-function displayBooks() {
+function displayBooks(chosenArray) {
     //remove previous display, because it always prints full array
     while (container.lastElementChild) {
         container.removeChild(container.lastElementChild);
     }
     
     //create new book divs
-    myLibrary.forEach(book => {
+    chosenArray.forEach(book => {
         let addedBook= document.createElement('div');
         for(const[key, value] of Object.entries(book)) {
             if (key !== 'background' && key!== 'read') {
@@ -111,7 +111,7 @@ function displayBooks() {
         deleteBtn.addEventListener('click', function(e) {
             container.removeChild(e.target.parentNode);
             myLibrary.splice(e.target.parentNode.getAttribute('data-place'), 1);
-            displayBooks();
+            displayBooks(myLibrary);
             updateLocalStorage();
         })
         addedBook.appendChild(deleteBtn);
@@ -123,8 +123,8 @@ function displayBooks() {
         container.appendChild(addedBook);
     });
 }
-
-displayBooks(); //once this runs it updates the display (deletes previous divs, and creates new ones, also resetting the propreties)
+//runs once at the beginning 
+displayBooks(myLibrary); //once this runs it updates the display (deletes previous divs, and creates new ones, also resetting the propreties)
 
 //pop-up form
 let form= document.querySelector('#form-container');
@@ -168,7 +168,7 @@ function createBook() {
         newInstance.background= `${getColor()}`;
 
     addBookToLibrary(newInstance);
-    displayBooks();
+    displayBooks(myLibrary);
     form.reset();
     formToggle.closeForm();
 }
@@ -181,8 +181,9 @@ function closeBtn() {
 
 //sorts display
 function sortByAuthor() {
-    myLibrary.sort((a, b) => (a.author > b.author) ? 1 : -1);
-    displayBooks();
+    let sorted= [...myLibrary];
+    sorted.sort((a, b) => (a.author > b.author) ? 1 : -1);
+    displayBooks(sorted);
 }
 
 const sortBtn= document.querySelector('#sortBtn');
