@@ -1,4 +1,5 @@
 let myLibrary = [
+    /*
     {
     author: 'Daniel Dafoe',
     title: 'Robinson Crusoe',
@@ -21,7 +22,8 @@ let myLibrary = [
     pages: '1225',
     read: 'no',
     background: 'hsl(225, 83%, 86%)'
-    }];
+    }
+*/];
 
 //LOCAL STORAGE
 //check if exists

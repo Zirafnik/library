@@ -12,6 +12,7 @@ I also made it so, that each book is assigned a random color from pastel range a
 Lastly I added the button which sorts the books in the display by Author name. I only wanted to sort the display, but not actually change the real order of books in the array.
 
 
-FUTURE-DEVELOPMENT:
+## FUTURE-DEVELOPMENT:
 -OOP
+
 *for some reason it sorts already existing objects in myLibrary, and those pushed into it separately ==> I therefore commented out the 'demo' books like initially planned, leaving an empty library as a starting point (couldn't figure out what causes the bug)
